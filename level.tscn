@@ -132,5 +132,5 @@ position = Vector2(551, 482)
 
 [node name="Mobs" type="Node2D" parent="." unique_id=391322873]
 
-[node name="Orc" parent="." unique_id=1214111192 instance=ExtResource("4_0b4ue")]
+[node name="Orc" parent="Mobs" unique_id=1214111192 instance=ExtResource("4_0b4ue")]
 position = Vector2(803, 463)

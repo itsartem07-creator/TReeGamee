@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dwo3idoq0u6n"]
 
 [ext_resource type="Texture2D" uid="uid://d1s6dcp301leu" path="res://Orc/Orc_Death.png" id="1_kapy6"]
+[ext_resource type="Script" uid="uid://sc75v4lhkbog" path="res://Mobs/orc.gd" id="1_t5wly"]
 [ext_resource type="Texture2D" uid="uid://daihehgn8mn4g" path="res://Orc/Orc_Idle.png" id="2_6hc3a"]
 [ext_resource type="Texture2D" uid="uid://cbsqd05ct0fk3" path="res://Orc/Orc_Walk.png" id="3_vumo0"]
 
@@ -150,7 +151,11 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vfcmt"]
+radius = 113.07078
+
 [node name="Orc" type="CharacterBody2D" unique_id=1214111192]
+script = ExtResource("1_t5wly")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=233429842]
 shape = SubResource("CapsuleShape2D_vfcmt")
@@ -160,4 +165,12 @@ position = Vector2(-1.1920929e-07, 3)
 scale = Vector2(1.1975, 1.3149999)
 sprite_frames = SubResource("SpriteFrames_vfcmt")
 animation = &"Death"
-autoplay = "Death"
+
+[node name="Detector" type="Area2D" parent="." unique_id=223821687]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=630481560]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_vfcmt")
+
+[connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
+[connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]
