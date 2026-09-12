@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dxpijqg8o454t"]
+
+[ext_resource type="Script" uid="uid://b88b4doy6a7s7" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="PackedScene" uid="uid://cgd1uhdppugtm" path="res://bg.tscn" id="2_ouk20"]
+[ext_resource type="Texture2D" uid="uid://buhpx2a2bi2mj" path="res://Screenshot 2026-09-12 231221-Photoroom.png" id="3_4hy44"]
+[ext_resource type="Texture2D" uid="uid://bag8knenyfgh7" path="res://Screenshot 2026-09-12 231639-Photoroom.png" id="4_ytr4m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vfcmt"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_i0y2a"]
+font_size = 40
+
+[node name="Menu" type="Node2D" unique_id=659636841]
+script = ExtResource("1_lti8b")
+
+[node name="Play" type="Button" parent="." unique_id=952731918]
+offset_left = 344.0
+offset_top = 144.0
+offset_right = 751.0
+offset_bottom = 244.0
+theme_override_font_sizes/font_size = 40
+text = "Play"
+
+[node name="Play2" type="Button" parent="." unique_id=1332144771]
+offset_left = 347.0
+offset_top = 292.0
+offset_right = 754.0
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 40
+text = "Quit
+"
+
+[node name="BG" parent="." unique_id=1341210984 instance=ExtResource("2_ouk20")]
+
+[node name="Screenshot20260912231221Photoroom" type="Sprite2D" parent="." unique_id=613869555]
+position = Vector2(529, 179)
+scale = Vector2(2.189, 2.4166667)
+texture = ExtResource("3_4hy44")
+
+[node name="Label" type="Label" parent="." unique_id=1906112448]
+offset_left = 489.0
+offset_top = 165.0
+offset_right = 794.0
+offset_bottom = 311.0
+text = "PLAY"
+label_settings = SubResource("LabelSettings_vfcmt")
+
+[node name="Screenshot20260912231639Photoroom" type="Sprite2D" parent="." unique_id=2036213151]
+position = Vector2(549, 326)
+scale = Vector2(2.2705762, 2.121681)
+texture = ExtResource("4_ytr4m")
+
+[node name="Label2" type="Label" parent="." unique_id=64599640]
+offset_left = 489.0
+offset_top = 311.0
+offset_right = 840.0
+offset_bottom = 537.0
+text = "QUIT"
+label_settings = SubResource("LabelSettings_i0y2a")
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Play2" to="." method="_on_quite_pressed"]
